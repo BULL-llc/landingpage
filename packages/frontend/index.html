@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="生成AIとクラウドを使い、2日間でアイデアを動くプロダクトにする人材育成プログラム。"
+    />
+    <title>生成AIプロダクト開発ブートキャンプ</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" data-scroll-target>
+        <span class="brand-mark">AI Product Bootcamp</span>
+        <span class="brand-name">生成AIプロダクト開発ブートキャンプ</span>
+      </a>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-controls="site-nav"
+        aria-expanded="false"
+        data-menu-toggle
+      >
+        メニュー
+      </button>
+      <nav class="site-nav" id="site-nav" data-nav>
+        <a href="#outcomes" data-scroll-target>得られること</a>
+        <a href="#curriculum" data-scroll-target>カリキュラム</a>
+        <a href="#schedule" data-scroll-target>2日間の流れ</a>
+        <a href="#faq" data-scroll-target>FAQ</a>
+        <a class="nav-cta" href="#apply" data-scroll-target>参加申し込み</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero-media"
+          src="/src/assets/hero-workshop.png"
+          alt="講師がプロトタイプの画面を見せながら研修参加者に説明している様子"
+        />
+        <div class="hero-content">
+          <p class="eyebrow">生成AIプロダクト開発ブートキャンプ</p>
+          <h1 id="hero-title">2日間で、アイデアを動くプロダクトへ</h1>
+          <p class="hero-copy">
+            生成AIとクラウドを使い、試作・公開・フィードバックまで
+            体験する人材育成プログラム。
+          </p>
+          <p class="hero-price">2日間 / 1名 200,000円（税別）</p>
+          <p class="hero-message">
+            AIツール研修ではなく、動くもので意思決定する文化をつくる。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#apply" data-scroll-target>
+              参加申し込み
+            </a>
+            <a class="button button-secondary" href="#program" data-scroll-target>
+              プログラム概要を見る
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section problem-section" id="program">
+        <div class="section-heading">
+          <p class="section-kicker">Program</p>
+          <h2>このプログラムとは</h2>
+          <p>
+            生成AI・Git/Markdown・AWS・Claude Codeなどを活用し、
+            短期間でプロトタイプを作り、公開し、フィードバックを得るところまで体験します。
+          </p>
+        </div>
+        <div class="problem-grid" aria-label="多くの企業が直面する課題">
+          <article>
+            <span>01</span>
+            <h3>PoCのままで終わる</h3>
+            <p>試してはいるが、実業務や意思決定につながる段階に進めない。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>共通言語がない</h3>
+            <p>エンジニアとビジネス側の間で、要件や制約のすり合わせが難しい。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>検証設計が弱い</h3>
+            <p>仮説検証やユーザーフィードバックの設計が後回しになる。</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>社内に残らない</h3>
+            <p>単発の研修で終わり、再現できる作り方や文化が定着しない。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section outcomes-section" id="outcomes">
+        <div class="section-heading">
+          <p class="section-kicker">Outcomes</p>
+          <h2>この2日間で得られること</h2>
+          <p>
+            エンジニアにも、非エンジニアにも、プロダクトとして形にするための共通体験を用意します。
+          </p>
+        </div>
+        <div class="outcome-split">
+          <article class="outcome-panel">
+            <p class="panel-label">エンジニア・開発リーダー向け</p>
+            <h3>AIと協働して、拡張性あるプロトタイプを作る。</h3>
+            <ul>
+              <li>生成AIとクラウドを活用した高速プロトタイピング。</li>
+              <li>Git/Markdownでチーム開発とドキュメント化を進める。</li>
+              <li>品質とスピードを両立するアーキテクチャ設計の基礎。</li>
+            </ul>
+          </article>
+          <article class="outcome-panel outcome-panel-accent">
+            <p class="panel-label">ビジネス・非エンジニア向け</p>
+            <h3>PowerPointのアイデアを、動く体験に変える。</h3>
+            <ul>
+              <li>生成AIで何ができ、どこに価値があるのかを理解する。</li>
+              <li>顧客課題を起点にプロダクトアイデアを具体化する。</li>
+              <li>最低限の技術理解を持って公開まで進める。</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section curriculum-section" id="curriculum">
+        <div class="section-heading">
+          <p class="section-kicker">Curriculum</p>
+          <h2>カリキュラム（4つのモジュール）</h2>
+        </div>
+        <div class="module-row">
+          <article class="module-item">
+            <span>1</span>
+            <h3>生成AIの基礎と活用法</h3>
+            <p>業務や組織への影響、得意・不得意、活用設計を学びます。</p>
+          </article>
+          <article class="module-item">
+            <span>2</span>
+            <h3>AI×テキスト化とGit運用</h3>
+            <p>MarkdownやGitで、AIが読み取りやすい情報資産を整えます。</p>
+          </article>
+          <article class="module-item">
+            <span>3</span>
+            <h3>クラウド活用</h3>
+            <p>AWSを使い、短期間でアプリを公開する基本を押さえます。</p>
+          </article>
+          <article class="module-item">
+            <span>4</span>
+            <h3>プロトタイピング演習</h3>
+            <p>試作し、見せ、フィードバックを受けて改善します。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section journey-section" aria-labelledby="journey-title">
+        <div class="section-heading">
+          <p class="section-kicker">Learning Journey</p>
+          <h2 id="journey-title">学びのジャーニー</h2>
+        </div>
+        <ol class="journey-list">
+          <li>
+            <span>Reframe</span>
+            <p>生成AI時代の課題と可能性を共通言語にする。</p>
+          </li>
+          <li>
+            <span>Explore</span>
+            <p>PlaygroundやClaude Codeでプロトタイピングを体感する。</p>
+          </li>
+          <li>
+            <span>Enable</span>
+            <p>Git/Markdown、2層アプリ構成、AWS公開の基礎を習得する。</p>
+          </li>
+          <li>
+            <span>Scale</span>
+            <p>実課題に接続し、継続改善や社内展開につなげる。</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section schedule-section" id="schedule">
+        <div class="section-heading">
+          <p class="section-kicker">Two Days</p>
+          <h2>2日間のタイムライン（例）</h2>
+        </div>
+        <div class="schedule-layout">
+          <div class="day-column">
+            <p class="day-label">Day 1</p>
+            <h3>作るための土台をつくる</h3>
+            <dl>
+              <div>
+                <dt>09:30</dt>
+                <dd>オープニング / 課題の共有</dd>
+              </div>
+              <div>
+                <dt>10:30</dt>
+                <dd>生成AIワークショップ</dd>
+              </div>
+              <div>
+                <dt>13:00</dt>
+                <dd>Git/Markdownとプロトタイピング設計</dd>
+              </div>
+              <div>
+                <dt>15:30</dt>
+                <dd>AWSハンズオンと公開準備</dd>
+              </div>
+              <div>
+                <dt>17:30</dt>
+                <dd>ふりかえりとDay2計画</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="day-column">
+            <p class="day-label">Day 2</p>
+            <h3>検証し、次の一手を決める</h3>
+            <dl>
+              <div>
+                <dt>09:30</dt>
+                <dd>ハックデイ開始 / 実装方針の確認</dd>
+              </div>
+              <div>
+                <dt>11:00</dt>
+                <dd>生成AIと協働したプロトタイプ開発</dd>
+              </div>
+              <div>
+                <dt>13:30</dt>
+                <dd>公開、ユーザーテスト、フィードバック収集</dd>
+              </div>
+              <div>
+                <dt>15:30</dt>
+                <dd>改善とロードマップ化</dd>
+              </div>
+              <div>
+                <dt>17:00</dt>
+                <dd>成果発表、講評、クロージング</dd>
+              </div>
+            </dl>
+          </div>
+          <aside class="price-panel" aria-label="料金">
+            <span>料金</span>
+            <strong>200,000円</strong>
+            <p>2日間 / 1名（税別）</p>
+            <ul>
+              <li>少人数制・実践中心のワークショップ。</li>
+              <li>社内課題に合わせたカスタマイズ可。</li>
+              <li>通常枠は6名まで。7名以上は応相談。</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section faq-section" id="faq">
+        <div class="section-heading">
+          <p class="section-kicker">FAQ</p>
+          <h2>よくあるご質問</h2>
+        </div>
+        <div class="faq-list">
+          <article class="faq-item">
+            <button type="button" aria-expanded="false" data-faq-button>
+              対象となる人材は？
+            </button>
+            <div class="faq-answer" hidden>
+              エンジニア、プロダクトマネージャー、事業開発、企画、CXの担当者など、
+              プロダクト開発に関わる人を対象にしています。
+            </div>
+          </article>
+          <article class="faq-item">
+            <button type="button" aria-expanded="false" data-faq-button>
+              事前の知識やスキルは必要ですか？
+            </button>
+            <div class="faq-answer" hidden>
+              特別なスキルは不要です。経験に応じて、エンジニア向けと非エンジニア向けの進め方を調整します。
+            </div>
+          </article>
+          <article class="faq-item">
+            <button type="button" aria-expanded="false" data-faq-button>
+              何名まで参加できますか？
+            </button>
+            <div class="faq-answer" hidden>
+              通常枠は6名までです。7名以上の場合は、運営体制と内容を調整するため応相談としています。
+            </div>
+          </article>
+          <article class="faq-item">
+            <button type="button" aria-expanded="false" data-faq-button>
+              社内課題に合わせて内容を変えられますか？
+            </button>
+            <div class="faq-answer" hidden>
+              可能です。テーマ、業務課題、参加者の職種に合わせてカリキュラムを調整できます。
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section apply-flow-section" id="apply">
+        <div class="section-heading">
+          <p class="section-kicker">Apply</p>
+          <h2>参加申し込みフロー</h2>
+          <p>
+            1問ずつ、開催に必要な情報を先に確認します。
+            お問い合わせ欄ではなく、研修設計に使う前提情報をまとめます。
+          </p>
+        </div>
+        <div class="apply-flow-shell" data-application-flow>
+          <aside class="apply-flow-sidebar">
+            <img
+              src="/src/assets/application-workshop.png"
+              alt="受講者がノートPC上のプロトタイプを見ながら議論している様子"
+            />
+            <p class="flow-eyebrow">Application</p>
+            <h3>未来のプロダクトを、この2日間から。</h3>
+            <ol class="flow-steps" data-flow-steps>
+              <li data-step-index="0">担当者名</li>
+              <li data-step-index="1">会社名</li>
+              <li data-step-index="2">メール</li>
+              <li data-step-index="3">人数</li>
+              <li data-step-index="4">参加者構成</li>
+              <li data-step-index="5">社内課題</li>
+              <li data-step-index="6">希望時期</li>
+              <li data-step-index="7">確認</li>
+            </ol>
+          </aside>
+          <div class="apply-flow-workspace">
+            <p class="flow-progress" data-flow-progress>はじめの確認</p>
+            <div class="flow-question" data-flow-question></div>
+            <div
+              class="flow-status"
+              role="status"
+              aria-live="polite"
+              data-form-status
+            ></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>生成AIプロダクト開発ブートキャンプ</p>
+      <a href="#top" data-scroll-target>ページ上部へ戻る</a>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
