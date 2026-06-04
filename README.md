@@ -52,6 +52,12 @@ bun run --filter frontend test
 bun run --filter frontend build
 ```
 
+GitHub Pages では以下の URL に公開されます。
+
+```text
+https://bull-llc.github.io/landingpage/
+```
+
 ## スキル
 
 | スキル | 説明 |

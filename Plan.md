@@ -43,3 +43,45 @@
 
 - 空テンプレートから依存追加なしの静的 LP として実装したため、開発サーバー、テスト、ビルドは Bun だけで完結した。
 - 申し込みは問い合わせフォームではなく、開催準備に必要な情報を 1 問ずつ集める体験にした。
+
+### GitHub Pages ホスティング - 2026-06-05
+
+#### 目的
+
+生成 AI プロダクト開発ブートキャンプ LP を GitHub Pages で公開する。
+
+#### 制約
+
+- 公開 URL は `https://bull-llc.github.io/landingpage/` とする。
+- GitHub Pages の project site 配信に対応するため、静的アセットは相対パスで参照する。
+- GitHub Actions の action は full SHA に固定する。
+- 既存 CI と同じく lifecycle scripts を無効化して依存をインストールする。
+
+#### タスク
+
+- [x] GitHub Pages の仕様書を作成する。
+- [x] Pages deploy workflow を追加する。
+- [x] HTML の静的アセット参照を相対パスにする。
+- [x] ローカルの build / test / lint を確認する。
+- [x] PR 作成、CI 確認、マージを行う。
+- [x] Pages の公開 URL を確認する。
+
+#### 検証手順
+
+- `bun run test`
+- `bun run build`
+- `bun run lint`
+- `bun run typecheck`
+- `bun scripts/architecture-harness.ts --staged --fail-on=error`
+- `make before-commit`
+- GitHub Actions の `pages` workflow が成功すること。
+- `https://bull-llc.github.io/landingpage/` で CSS、JavaScript、画像が読み込まれること。
+
+#### 進捗ログ
+
+- 2026-06-05: GitHub Pages が workflow mode で有効なことを確認した。
+- 2026-06-05: Pages workflow を追加し、GitHub Pages の project site 配信用に静的アセット参照を相対パスへ変更した。
+
+#### 振り返り
+
+- GitHub Pages は `/landingpage/` 配下で公開されるため、絶対パスのアセット参照を避ける必要があった。
