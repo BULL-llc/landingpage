@@ -41,6 +41,17 @@ make build          # ビルド（全ワークスペース）
 make before-commit  # コミット前チェック（lint + typecheck + test + build）
 ```
 
+## フロントエンド LP
+
+`packages/frontend` は、生成 AI プロダクト開発ブートキャンプのランディングページです。
+外部依存を追加せず、Bun の軽量サーバーで静的ファイルを配信します。
+
+```bash
+bun run --filter frontend dev
+bun run --filter frontend test
+bun run --filter frontend build
+```
+
 ## スキル
 
 | スキル | 説明 |
