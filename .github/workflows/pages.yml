@@ -1,0 +1,64 @@
+name: pages
+
+permissions:
+  contents: read
+  id-token: write
+  pages: write
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  cancel-in-progress: false
+  group: pages
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        # actions/checkout v4.3.1
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+
+      - name: Setup Bun
+        # oven-sh/setup-bun v2.0.2
+        uses: oven-sh/setup-bun@735343b667d3e6f658f44d0eca948eb6282f2b76
+
+      - name: Setup safe-chain
+        run: |
+          bun add -g @aikidosec/safe-chain
+          safe-chain setup-ci
+
+      - name: Install packages via packages.json
+        env:
+          CI: "true"
+          npm_config_ignore_scripts: "true"
+        run: make install_ci
+
+      - name: Build frontend
+        run: bun run --filter frontend build
+
+      - name: Configure Pages
+        # actions/configure-pages v5
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b
+
+      - name: Upload Pages artifact
+        # actions/upload-pages-artifact v3
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
+        with:
+          path: packages/frontend/dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        # actions/deploy-pages v4
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e

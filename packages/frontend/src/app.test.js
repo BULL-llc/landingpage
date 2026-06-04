@@ -84,6 +84,10 @@ describe('ブートキャンプLP', () => {
     expect(html).toContain('data-faq-button');
     expect(html).toContain('2日間 / 1名 200,000円（税別）');
     expect(html).toContain('通常枠は6名まで。7名以上は応相談。');
+    expect(html).toContain('href="src/styles.css"');
+    expect(html).toContain('src="src/main.js"');
+    expect(html).not.toContain('href="/src/');
+    expect(html).not.toContain('src="/src/');
     expect(html).not.toContain('Scale Inside');
   });
 });
