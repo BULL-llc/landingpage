@@ -1,8 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
-  <title id="title">生成AIプロダクト開発ブートキャンプ</title>
-  <rect width="512" height="512" rx="114" fill="#1d1d1f"/>
-  <g transform="translate(96 96) scale(2.6667)">
-    <rect x="26" y="24" width="68" height="12" rx="6" fill="#ffffff"/>
-    <path d="M26 90 L60 48 L94 90" fill="none" stroke="#ffffff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <title id="title">合同会社 BULL</title>
+  <rect width="512" height="512" rx="114" fill="#171b18"/>
+  <g transform="translate(106 120) scale(2.5)">
+    <g fill="none" stroke="#f8f7f2" stroke-width="11" stroke-linecap="round">
+      <path d="M44 50 C30 46 18 48 12 40 C8 35 9 28 14 26"/>
+      <path d="M76 50 C90 46 102 48 108 40 C112 35 111 28 106 26"/>
+    </g>
+    <path d="M42 52 C34 50 28 54 26 60 C32 62 38 60 44 56 Z" fill="#f8f7f2"/>
+    <path d="M78 52 C86 50 92 54 94 60 C88 62 82 60 76 56 Z" fill="#f8f7f2"/>
+    <path d="M42 48 H78 C82 70 74 90 60 98 C46 90 38 70 42 48 Z" fill="#f8f7f2"/>
   </g>
 </svg>
