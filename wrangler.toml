@@ -1,0 +1,19 @@
+# Cloudflare Pages build configuration.
+#
+# 配信物は `packages/frontend` の静的サイト。Cloudflare Pages の Git 連携
+# （ダッシュボードで GitHub リポジトリを接続）で、main への push ごとに
+# Cloudflare 側がビルドコマンド `bun run --filter frontend build` を実行し、
+# 出力ディレクトリ `packages/frontend/dist` を配信する。GitHub Actions の
+# デプロイ workflow は使わない。
+#
+# `name` は Cloudflare Pages のプロジェクト名。Cloudflare の Pages 設定検証は
+# トップレベルでの指定を要求し、環境変数では渡せないため、フォークや別環境では
+# この 1 行を自分のプロジェクト名に置き換える。
+#
+# `pages_build_output_dir` はリポジトリ相対の公開ディレクトリで、全環境で共通。
+# この指定によりダッシュボードの「ビルド出力ディレクトリ」欄が有効になる。
+#
+# `compatibility_date` は意図的に省略する。Pages Functions 専用の項目であり、
+# この静的サイトでは使わない。
+name = "bull-landingpage"
+pages_build_output_dir = "packages/frontend/dist"

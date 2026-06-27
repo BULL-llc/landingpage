@@ -85,3 +85,38 @@
 #### 振り返り
 
 - GitHub Pages は `/landingpage/` 配下で公開されるため、絶対パスのアセット参照を避ける必要があった。
+
+### Cloudflare Pages への移行 - 2026-06-26
+
+#### 目的
+
+会社サイト（生成 AI ブートキャンプ LP）のホスティングを GitHub Pages から Cloudflare Pages へ一本化する。
+
+#### 制約
+
+- 静的サイトのまま配信する（backend は使わない）。
+- デプロイは Cloudflare Pages の Git 連携に任せ、GitHub Actions のデプロイ workflow は持たない（TenkaCloud と同方式）。
+- アセット参照は相対パスのままとし、Cloudflare Pages のルート配信でもそのまま動作させる。
+
+#### タスク
+
+- [x] リポジトリ直下に `wrangler.toml`（`name` + `pages_build_output_dir`）を追加する。
+- [x] GitHub Pages workflow（`pages.yml`）を削除する。
+- [x] README の公開 URL を Cloudflare Pages（`https://bull-landingpage.pages.dev/`）へ更新する。
+- [ ] Cloudflare ダッシュボードで Pages プロジェクトを GitHub リポジトリに接続し、ビルドコマンド `bun run --filter frontend build` を設定する（リポジトリ管理者作業）。
+- [ ] カスタムドメイン `www.bullxyz.com` を Pages プロジェクトに割り当てる（リポジトリ管理者作業）。
+
+#### 検証手順
+
+- `main` への push で Cloudflare Pages の自動ビルド・デプロイが成功すること。
+- `https://www.bullxyz.com/` で CSS、JavaScript、画像が読み込まれること。
+
+#### 進捗ログ
+
+- 2026-06-26: 静的アセット参照がすべて相対パスのため、Cloudflare Pages のルート配信でも変更不要と確認した。
+- 2026-06-26: TenkaCloud の方式（Git 連携 + wrangler.toml、GitHub Actions デプロイ workflow なし）に合わせ、`wrangler.toml` を追加し GitHub Pages workflow を削除した。
+
+#### 振り返り
+
+- GitHub Pages はサブパス配信だったが、Cloudflare Pages はルート配信のため相対パス資産がそのまま流用でき、移行コストを抑えられた。
+- デプロイを Cloudflare の Git 連携に寄せることで、GitHub Actions に Cloudflare 認証情報（API トークン・Account ID）を持たせずに済み、CI から秘密情報を排除できた。
