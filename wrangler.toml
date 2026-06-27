@@ -2,18 +2,24 @@
 #
 # 配信物は `packages/frontend` の静的サイト。Cloudflare Pages の Git 連携
 # （ダッシュボードで GitHub リポジトリを接続）で、main への push ごとに
-# Cloudflare 側がビルドコマンド `bun run --filter frontend build` を実行し、
-# 出力ディレクトリ `packages/frontend/dist` を配信する。GitHub Actions の
-# デプロイ workflow は使わない。
+# Cloudflare 側がビルド・デプロイする。GitHub Actions のデプロイ workflow は
+# 使わない。
 #
-# `name` は Cloudflare Pages のプロジェクト名。Cloudflare の Pages 設定検証は
-# トップレベルでの指定を要求し、環境変数では渡せないため、フォークや別環境では
-# この 1 行を自分のプロジェクト名に置き換える。
+# 重要: ビルドコマンドは wrangler.toml では指定できない。Cloudflare Pages の
+# ダッシュボード（Settings → Builds & deployments → Build configuration）の
+# 「Build command」欄に `bun run --filter frontend build` を設定する。ここが
+# 空のままだと Cloudflare は「No build command specified. Skipping build step.」
+# としてビルドを飛ばし、`packages/frontend/dist` が生成されず
+# 「Output directory not found」でデプロイが失敗する（過去の失敗原因）。
+#
+# `name` は Cloudflare Pages のプロジェクト名と完全一致させる。Git 連携の
+# プロジェクトは `landingpage` で作成済みのため、この値も `landingpage`。
+# フォークや別環境ではこの 1 行を自分のプロジェクト名に置き換える。
 #
 # `pages_build_output_dir` はリポジトリ相対の公開ディレクトリで、全環境で共通。
-# この指定によりダッシュボードの「ビルド出力ディレクトリ」欄が有効になる。
+# ビルドコマンドが生成する出力先と一致させる。
 #
 # `compatibility_date` は意図的に省略する。Pages Functions 専用の項目であり、
 # この静的サイトでは使わない。
-name = "bull-landingpage"
+name = "landingpage"
 pages_build_output_dir = "packages/frontend/dist"
