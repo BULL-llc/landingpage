@@ -85,3 +85,42 @@
 #### 振り返り
 
 - GitHub Pages は `/landingpage/` 配下で公開されるため、絶対パスのアセット参照を避ける必要があった。
+
+### Cloudflare Pages への移行 - 2026-06-26
+
+#### 目的
+
+会社サイト（生成 AI ブートキャンプ LP）のホスティングを GitHub Pages から Cloudflare Pages へ一本化する。
+
+#### 制約
+
+- 静的サイトのまま配信する（backend は使わない）。
+- デプロイは Cloudflare Pages の Git 連携に任せ、GitHub Actions のデプロイ workflow は持たない（TenkaCloud と同方式）。
+- アセット参照は相対パスのままとし、Cloudflare Pages のルート配信でもそのまま動作させる。
+
+#### タスク
+
+- [x] リポジトリ直下に `wrangler.toml`（`name` + `pages_build_output_dir`）を追加する。
+- [x] GitHub Pages workflow（`pages.yml`）を削除する。
+- [x] README の公開 URL を Cloudflare Pages（`https://landingpage.pages.dev/`）へ更新する。
+- [x] `wrangler.toml` の `name` を実プロジェクト名 `landingpage` に一致させる。
+- [ ] Cloudflare ダッシュボードの Build configuration で「Build command」に `bun run --filter frontend build` を設定する（リポジトリ管理者作業。空のままだとビルドが飛び `Output directory not found` で失敗する）。
+- [ ] カスタムドメイン `www.bullxyz.com` を Pages プロジェクトに割り当てる（リポジトリ管理者作業）。
+
+#### 検証手順
+
+- `main` への push で Cloudflare Pages の自動ビルド・デプロイが成功すること。
+- `https://www.bullxyz.com/` で CSS、JavaScript、画像が読み込まれること。
+
+#### 進捗ログ
+
+- 2026-06-26: 静的アセット参照がすべて相対パスのため、Cloudflare Pages のルート配信でも変更不要と確認した。
+- 2026-06-26: TenkaCloud の方式（Git 連携 + wrangler.toml、GitHub Actions デプロイ workflow なし）に合わせ、`wrangler.toml` を追加し GitHub Pages workflow を削除した。
+- 2026-06-27: 初回デプロイが `Failed: build output directory not found` で失敗した。ビルドログは `No build command specified. Skipping build step.` を示しており、ダッシュボードの Build command が未設定でビルド工程が飛ばされ、`packages/frontend/dist` が生成されていなかった。
+- 2026-06-27: 実プロジェクト名が `landingpage` で `wrangler.toml` の `name`（`bull-landingpage`）と不一致だったため、`name` を `landingpage` に揃えた（今回の失敗の直接原因ではないが将来の `wrangler pages deploy` での齟齬を防ぐ）。
+
+#### 振り返り
+
+- GitHub Pages はサブパス配信だったが、Cloudflare Pages はルート配信のため相対パス資産がそのまま流用でき、移行コストを抑えられた。
+- デプロイを Cloudflare の Git 連携に寄せることで、GitHub Actions に Cloudflare 認証情報（API トークン・Account ID）を持たせずに済み、CI から秘密情報を排除できた。
+- 問題: 初回デプロイが `build output directory not found` で失敗した。根本原因: Cloudflare Pages のビルドコマンドは wrangler.toml では指定できずダッシュボードの Build command 欄でしか設定できないが、この手動設定が未実施でビルドが飛ばされた。予防策: wrangler.toml のコメントと Plan のタスクに「Build command を空にしない」ことと失敗時の症状（`No build command specified` → `Output directory not found`）を明記し、接続手順とビルドコマンド設定を分離して見落とさないようにした。

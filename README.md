@@ -52,11 +52,13 @@ bun run --filter frontend test
 bun run --filter frontend build
 ```
 
-GitHub Pages では以下の URL に公開されます。
+Cloudflare Pages に `main` への push で自動デプロイされます。本番ドメインは次のとおりです。
 
 ```text
-https://bull-llc.github.io/landingpage/
+https://www.bullxyz.com/
 ```
+
+デフォルトの Cloudflare ドメインは `https://landingpage.pages.dev/` で、本番ドメインはこれにカスタムドメインを割り当てています。
 
 ## スキル
 
