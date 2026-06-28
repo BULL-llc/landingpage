@@ -1,5 +1,8 @@
 # typescript-template
 
+> [!WARNING]
+> このリポジトリは廃止されました。生成 AI ブートキャンプ LP は会社サイト [`BULL-llc/corporate-site`](https://github.com/BULL-llc/corporate-site) の 1 ページ `/bootcamp`（`www.bullxyz.com/bootcamp`）へ集約しました。今後の更新は corporate-site 側で行います。本リポジトリは参照用として残し、新規の変更は受け付けません。
+
 TypeScript + Bun + Biome を使った Claude Code 向けモノレポテンプレート。
 
 ## ツールスタック
